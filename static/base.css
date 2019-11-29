@@ -1,0 +1,14 @@
+/* #navbarNavDropdown {
+    float: left;
+    margin-left: 10px;
+  } */
+
+#imgIndex {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
