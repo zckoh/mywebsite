@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from projects.models import Project
+import logging
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 def projects_index(request):
-    project = Project.objects.all()
+    projects = Project.objects.all()
     context = {
-        'projects' : Project.objects.all()
+        'projects' : projects
     }
     return render(request, 'projects/project_index.html', context)
 

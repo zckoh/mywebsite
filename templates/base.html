@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-
 {% load static %}
 
+<!-- <body ></body> -->
 <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
     <div class="container">
-        <a class="navbar-brand" href="#">ZCK</a>
+        <a class="navbar-brand" href="{% url 'projects_index' %}">ZCK</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,8 +20,13 @@
                     <a class="nav-link" href="{% url 'projects_index' %}">Home <span
                             class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'projects_index' %}">Contact <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="#">What to Eat!</a>
+                    <a class="nav-link" href="{% url 'whattoeat_index' %}">What to Eat!</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -39,20 +44,23 @@
     </div>
 </nav>
 
-
-
-<div class="container">
+<div class="container", id="page-wrapper">
     {% block page_content %}{% endblock %}
 </div>
 
-
-
-      <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
-            <div class="container text-center">
-              <small>More contact info</small>
-            </div>
-          </footer>
-      
+<!-- 
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50"> -->
+    <div class="footer", id="footy">
+        <div class="footer-content">
+            <div class="footer-section about"></div>
+            <div class="footer-section links"></div>
+            <div class="footer-section contact-form"></div>
+        </div>
+        <div class="footer-bottom">
+            &copy; hello | its ZCK
+        </div>
+    </div>
+<!-- </footer> -->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

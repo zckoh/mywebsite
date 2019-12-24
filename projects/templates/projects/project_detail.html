@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
-<h1>{{ project.title }}</h1>
+<div class="page-title">
+    <h1>{{ project.title }}</h1>
+</div>
+
 <div class="row">
     <div class="col-md-8">
         {% if project.image %}
@@ -21,6 +24,5 @@
         <h2>Project details:</h2>
     </div>
     <p>{{ project.description }}</p>
-
 </div>
 {% endblock %}

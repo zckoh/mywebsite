@@ -20,18 +20,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'n_k#ufbk@zmbwcf*4e=j5%hebqxom8!*hy_#dn0s5%76ga)7-$'
+SECRET_KEY = os.environ['DJANGO_SECRET']
+GOOGLEMAPS_API_KEY = os.environ['GOOGLEMAPS_API_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
+    # 'polls.apps.PollsConfig',
     'projects.apps.ProjectsConfig',
     'whattoeat.apps.WhattoeatConfig',
     'django.contrib.admin',
@@ -122,5 +122,38 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# # Absolute path to the directory static files should be collected to.
+# # Don't put anything in this directory yourself; store your static files
+# # in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# # Example: "/var/www/example.com/static/"
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        # Redefining the logger for the `django` module
+        # prevents invoking the `AdminEmailHandler`
+        '': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    }
+}
